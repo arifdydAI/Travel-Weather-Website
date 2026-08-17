@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Weather-Based Travel Recommendation — find the best Bangladeshi destinations based on live weather conditions." />
+  <title>SkyTrip · Weather-Based Travel Recommendation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <!-- ============ Header ============ -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#" class="brand" aria-label="SkyTrip home">
+        <span class="brand-mark">☀️</span>
+        <span class="brand-name">Sky<span>Trip</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============ Hero ============ -->
+  <main id="home">
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow">Plan smarter with real weather data</p>
+        <h1 class="hero-title">Where should you <span>travel?</span></h1>
+        <p class="hero-sub">
+          Pick a date, and we'll recommend the best places in Bangladesh based on
+          live weather conditions — scored from 0 to 100.
+        </p>
+
+        <form id="search-form" class="search-panel" autocomplete="off">
+          <div class="search-field search-date">
+            <label for="travel-date">Travel date</label>
+            <input type="date" id="travel-date" required />
+          </div>
+          <div class="search-field search-input">
+            <label for="search-box">Search destination</label>
+            <input
+              type="text"
+              id="search-box"
+              placeholder="e.g. Cox's Bazar, Sajek, Sylhet…"
+            />
+          </div>
+          <button type="submit" class="btn-search" id="search-btn">
+            <span>Search</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ District Explorer ============ -->
+    <section id="district-explorer" class="container district-explorer-section">
+      <!-- Division Selection -->
+      <div class="explorer-step" id="division-step">
+        <div class="section-head">
+          <p class="section-eyebrow">Explore by Division</p>
+          <h2 class="section-title">Select a Division</h2>
+        </div>
+        <p class="section-note">Bangladesh has 8 administrative divisions. Choose one to explore its districts.</p>
+        <div class="division-grid" id="division-grid" role="group" aria-label="Select division">
+          <!-- Divisions injected by script.js -->
+        </div>
+      </div>
+
+      <!-- District Selection (hidden until division selected) -->
+      <div class="explorer-step hidden" id="district-step">
+        <div class="explorer-breadcrumb">
+          <button class="breadcrumb-btn" id="back-to-divisions" aria-label="Back to divisions">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            <span>All Divisions</span>
+          </button>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current" id="selected-division-name"></span>
+        </div>
+        <div class="section-head">
+          <p class="section-eyebrow">Districts in <span id="district-step-division-name"></span></p>
+          <h2 class="section-title">Select a District</h2>
+        </div>
+        <p class="section-note" id="district-step-note">This division has <span id="division-district-count"></span> districts. Choose one to see its destinations.</p>
+        <div class="district-grid" id="district-grid" role="group" aria-label="Select district">
+          <!-- Districts injected by script.js -->
+        </div>
+      </div>
+
+      <!-- Destination View (hidden until district selected) -->
+      <div class="explorer-step hidden" id="destination-step">
+        <div class="explorer-breadcrumb">
+          <button class="breadcrumb-btn" id="back-to-divisions-2" aria-label="Back to divisions">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            <span>All Divisions</span>
+          </button>
+          <span class="breadcrumb-separator">/</span>
+          <button class="breadcrumb-btn" id="back-to-districts" aria-label="Back to districts">
+            <span id="breadcrumb-division-name"></span>
+          </button>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current" id="breadcrumb-district-name"></span>
+        </div>
+        <div class="section-head">
+          <div>
+            <p class="section-eyebrow" id="dest-step-division-name"></p>
+            <h2 class="section-title" id="dest-step-district-name"></h2>
+          </div>
+          <p class="section-note" id="dest-step-note"><span id="district-destination-count"></span> destinations</p>
+        </div>
+
+        <!-- Category Filters for selected district -->
+        <div class="filters-section">
+          <div class="filters" id="district-category-filters" role="group" aria-label="Filter by category">
+            <!-- Category chips injected by script.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Category filters (legacy - for backward compat) ============ -->
+    <section class="container filters-section hidden" id="legacy-filters-section">
+      <div class="filters" id="category-filters" role="group" aria-label="Filter by category">
+        <button class="chip active" data-category="all">All</button>
+        <button class="chip" data-category="Beach">Beach</button>
+        <button class="chip" data-category="Hill">Hill</button>
+        <button class="chip" data-category="Nature">Nature</button>
+        <button class="chip" data-category="Forest">Forest</button>
+        <button class="chip" data-category="Historical">Historical</button>
+        <button class="chip" data-category="Lake">Lake</button>
+        <button class="chip" data-category="City">City</button>
+      </div>
+    </section>
+
+    <!-- ============ Recommendations ============ -->
+    <section id="destinations" class="container recommendations">
+      <div class="section-head">
+        <div>
+          <p class="section-eyebrow" id="rec-eyebrow">Live recommendations</p>
+          <h2 class="section-title" id="rec-title">Best places to travel</h2>
+        </div>
+        <p class="section-note" id="rec-note">Sorted by Travel Score</p>
+      </div>
+
+      <div class="status-bar" id="status-bar" hidden>
+        <span class="spinner" aria-hidden="true"></span>
+        <span id="status-text">Loading weather data…</span>
+      </div>
+      <div class="error-banner" id="error-banner" hidden></div>
+
+      <div class="cards-grid" id="cards-grid">
+        <!-- Cards injected by script.js -->
+      </div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <p>No destinations match your search.</p>
+      </div>
+    </section>
+
+    <!-- ============ Explore Bangladesh ============ -->
+    <section id="map-section" class="explore-section">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Explore Bangladesh</p>
+          <h2 class="section-title">Best places to travel</h2>
+        </div>
+        <p class="section-note" id="map-note">Explore destinations and discover the best places to travel based on today's weather.</p>
+
+        <div class="map-filters" id="map-filters" role="group" aria-label="Filter by category">
+          <button class="filter-chip active" data-filter="all">All</button>
+          <button class="filter-chip" data-filter="Beach">Beach</button>
+          <button class="filter-chip" data-filter="Hill">Hill</button>
+          <button class="filter-chip" data-filter="Nature">Nature</button>
+          <button class="filter-chip" data-filter="Forest">Forest</button>
+          <button class="filter-chip" data-filter="Historical">Historical</button>
+          <button class="filter-chip" data-filter="Lake">Lake</button>
+          <button class="filter-chip" data-filter="City">City</button>
+        </div>
+
+        <div id="map" class="map-container"></div>
+
+        <div class="map-legend" id="map-legend">
+          <div class="legend-item"><span class="legend-color legend-excellent"></span> Excellent</div>
+          <div class="legend-item"><span class="legend-color legend-good"></span> Good</div>
+          <div class="legend-item"><span class="legend-color legend-moderate"></span> Moderate</div>
+          <div class="legend-item"><span class="legend-color legend-bad"></span> Not Recommended</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ How it works ============ -->
+    <section id="how-it-works" class="how-section">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Transparent scoring</p>
+          <h2 class="section-title">How the Travel Score works</h2>
+        </div>
+        <div class="how-grid">
+          <div class="how-card">
+            <span class="how-icon">🌡️</span>
+            <h3>Temperature</h3>
+            <p>Comfort is scored against a category-specific ideal temperature range.</p>
+          </div>
+          <div class="how-card">
+            <span class="how-icon">🌧️</span>
+            <h3>Rain chance</h3>
+            <p>High rain probability and precipitation volume lower the score sharply.</p>
+          </div>
+          <div class="how-card">
+            <span class="how-icon">⛅</span>
+            <h3>Conditions</h3>
+            <p>Clear skies score best; thunderstorms, fog and heavy rain score worst.</p>
+          </div>
+          <div class="how-card">
+            <span class="how-icon">🌬️</span>
+            <h3>Wind & visibility</h3>
+            <p>Calm winds and clear visibility improve the experience for every trip type.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>SkyTrip</strong> · Weather-Based Travel Recommendation</p>
+      <p>Weather data by <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeather</a>. Scores computed live — no fake data.</p>
+    </div>
+  </footer>
+
+  <!-- ============ Destination details modal ============ -->
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-body" id="modal-body">
+        <div class="modal-loading" id="modal-loading">
+          <span class="spinner"></span><p>Loading destination…</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

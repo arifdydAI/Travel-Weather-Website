@@ -1,0 +1,648 @@
+[
+  {
+    "id": "cox-bazar",
+    "name": "Cox's Bazar",
+    "country": "Bangladesh",
+    "latitude": 21.4272,
+    "longitude": 92.0058,
+    "category": "Beach",
+    "district": "Cox's Bazar",
+    "division": "Chattogram",
+    "shortDescription": "The world's longest natural sandy sea beach, stretching over 120 km along the Bay of Bengal.",
+    "recommendedActivities": [
+      "Sunrise walk along the beach",
+      "Surfing and beach sports",
+      "Visit Himchori waterfall",
+      "Seafood dinner at local restaurants",
+      "Sunset cruise on the Bay of Bengal"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Cox%27s_Bazar_Beach.jpg/800px-Cox%27s_Bazar_Beach.jpg"
+  },
+  {
+    "id": "sajek-valley",
+    "name": "Sajek Valley",
+    "country": "Bangladesh",
+    "latitude": 23.3808,
+    "longitude": 92.2821,
+    "category": "Hill",
+    "district": "Rangamati",
+    "division": "Chattogram",
+    "shortDescription": "A scenic hill valley at the top of the Tripura mountains, famous for clouds floating below the peaks.",
+    "recommendedActivities": [
+      "Watch the sunrise over cloud valleys",
+      "Trek through Konglak hill",
+      "Visit the indigenous villages",
+      "Photography at Vangkhang resort",
+      "Ride the winding hill roads"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Sajek_Valley.jpg/800px-Sajek_Valley.jpg"
+  },
+  {
+    "id": "bandarban",
+    "name": "Bandarban",
+    "country": "Bangladesh",
+    "latitude": 22.1953,
+    "longitude": 92.2184,
+    "category": "Hill",
+    "district": "Bandarban",
+    "division": "Chattogram",
+    "shortDescription": "The hill-district capital surrounded by green hills, waterfalls and indigenous culture.",
+    "recommendedActivities": [
+      "Trek to Nilgiri viewpoint",
+      "Visit the 'Golden Temple' of Bagan",
+      "Explore Nafakhum waterfalls",
+      "Boat ride on Sangu river",
+      "Experience Marma and Tripura culture"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Bandarban_Hills.jpg/800px-Bandarban_Hills.jpg"
+  },
+  {
+    "id": "rangamati",
+    "name": "Rangamati",
+    "country": "Bangladesh",
+    "latitude": 22.65,
+    "longitude": 92.1914,
+    "category": "Lake",
+    "district": "Rangamati",
+    "division": "Chattogram",
+    "shortDescription": "A lake-town on the shores of Kaptai Lake, known for the indigenous Chakma culture and floating markets.",
+    "recommendedActivities": [
+      "Boat cruise on Kaptai Lake",
+      "Visit Hanging Bridge over the lake",
+      "Explore Chakma weaving villages",
+      "Visit the tribal cultural museum",
+      "Sunset views from hill viewpoints"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Rangamati_Kaptai_Lake.jpg/800px-Rangamati_Kaptai_Lake.jpg"
+  },
+  {
+    "id": "sylhet",
+    "name": "Sylhet",
+    "country": "Bangladesh",
+    "latitude": 24.8949,
+    "longitude": 91.8687,
+    "category": "Nature",
+    "district": "Sylhet",
+    "division": "Sylhet",
+    "shortDescription": "The tea capital of Bangladesh with lush tea gardens, waterfalls and tranquil haors.",
+    "recommendedActivities": [
+      "Visit the 201-step Shah Jalal shrine area",
+      "Tea garden tours",
+      "Trip to Lalakhal river",
+      "Explore the wetlands and haors",
+      "Local sweet & zafrani cuisine tasting"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Sylhet_Tea_Garden.jpg/800px-Sylhet_Tea_Garden.jpg"
+  },
+  {
+    "id": "sreemangal",
+    "name": "Sreemangal",
+    "country": "Bangladesh",
+    "latitude": 24.3056,
+    "longitude": 91.728,
+    "category": "Nature",
+    "district": "Moulvibazar",
+    "division": "Sylhet",
+    "shortDescription": "Known as the tea capital of Bangladesh, home to endless tea estates and the Lawachara rainforest.",
+    "recommendedActivities": [
+      "Walk through Lawachara National Park",
+      "Visit tea gardens at dawn",
+      "Explore the seven-layer tea garden",
+      "Hiking to Madhabpur lake",
+      "Birdwatching and butterfly spotting"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Lawachara_National_Park.jpg/800px-Lawachara_National_Park.jpg"
+  },
+  {
+    "id": "saint-martin",
+    "name": "Saint Martin's Island",
+    "country": "Bangladesh",
+    "latitude": 20.6347,
+    "longitude": 92.328,
+    "category": "Beach",
+    "district": "Cox's Bazar",
+    "division": "Chattogram",
+    "shortDescription": "Bangladesh's only coral island in the Bay of Bengal, with crystal-clear water and white sand beaches.",
+    "recommendedActivities": [
+      "Snorkelling in the coral reef",
+      "Beach hopping on the island",
+      "Fresh crab and seafood meals",
+      "Walking the island on foot",
+      "Sunset at the western beach"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Saint_Martin%27s_Island.jpg/800px-Saint_Martin%27s_Island.jpg"
+  },
+  {
+    "id": "kuakata",
+    "name": "Kuakata",
+    "country": "Bangladesh",
+    "latitude": 21.8176,
+    "longitude": 90.1085,
+    "category": "Beach",
+    "district": "Patuakhali",
+    "division": "Barishal",
+    "shortDescription": "A rare beach where you can watch both sunrise and sunset over the sea, known as the 'Sagor Kannya'.",
+    "recommendedActivities": [
+      "Watch sunrise and sunset on the same beach",
+      "Visit the Buddhist temple",
+      "Explore Fatrar Char island",
+      "Walking along the golden sandy shore",
+      "Fresh coconut water by the sea"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Kuakata_Beach.jpg/800px-Kuakata_Beach.jpg"
+  },
+  {
+    "id": "jaflong",
+    "name": "Jaflong",
+    "country": "Bangladesh",
+    "latitude": 25.1547,
+    "longitude": 92.0485,
+    "category": "Nature",
+    "district": "Sylhet",
+    "division": "Sylhet",
+    "shortDescription": "A hill-side village beside the Piyain river where stone collecting and scenic river views meet the border hills.",
+    "recommendedActivities": [
+      "Boat ride on the Piyain river",
+      "Watch stone collectors at work",
+      "Views of the Dawki border hills",
+      "Visit the Jaflong viewpoint",
+      "Swimming in the river pools"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Jaflong_River.jpg/800px-Jaflong_River.jpg"
+  },
+  {
+    "id": "ratargul",
+    "name": "Ratargul",
+    "country": "Bangladesh",
+    "latitude": 24.9776,
+    "longitude": 91.9945,
+    "category": "Forest",
+    "district": "Sylhet",
+    "division": "Sylhet",
+    "shortDescription": "A freshwater swamp forest, the Amazon of Bangladesh, where trees rise straight out of the water.",
+    "recommendedActivities": [
+      "Boat ride through the submerged forest",
+      "Birdwatching and wildlife spotting",
+      "Photography in the swamp tunnels",
+      "Explore the nearby Guaibandha river",
+      "Visit the adjacent tea gardens"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Ratargul_Swamp_Forest.jpg/800px-Ratargul_Swamp_Forest.jpg"
+  },
+  {
+    "id": "tanguar-haor",
+    "name": "Tanguar Haor",
+    "country": "Bangladesh",
+    "latitude": 25.1397,
+    "longitude": 91.1489,
+    "category": "Nature",
+    "district": "Sunamganj",
+    "division": "Sylhet",
+    "shortDescription": "A UNESCO Ramsar wetland in Sunamganj that becomes a vast inland sea during the monsoon.",
+    "recommendedActivities": [
+      "Houseboat cruising across the haor",
+      "Birdwatching in winter",
+      "Visit floating villages",
+      "Sunrise over the vast wetlands",
+      "Fishing village culture tour"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tanguar_Haor.jpg/800px-Tanguar_Haor.jpg"
+  },
+  {
+    "id": "nafakhum",
+    "name": "Nafakhum",
+    "country": "Bangladesh",
+    "latitude": 21.8533,
+    "longitude": 92.5294,
+    "category": "Nature",
+    "district": "Bandarban",
+    "division": "Chattogram",
+    "shortDescription": "The 'Niagara of Bangladesh', a dramatic waterfall on the Remakri river in Thanchi, Bandarban.",
+    "recommendedActivities": [
+      "Trek through the Remakri river valley",
+      "Photographing the 30m waterfall",
+      "Camping near the falls",
+      "Visit Mru indigenous villages",
+      "Mountain stream bathing"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Nafakhum_Waterfall.jpg/800px-Nafakhum_Waterfall.jpg"
+  },
+  {
+    "id": "kaptai",
+    "name": "Kaptai",
+    "country": "Bangladesh",
+    "latitude": 22.4977,
+    "longitude": 92.2192,
+    "category": "Lake",
+    "district": "Rangamati",
+    "division": "Chattogram",
+    "shortDescription": "Gateway to the artificial Kaptai Lake, Bangladesh's largest man-made lake surrounded by hills.",
+    "recommendedActivities": [
+      "Houseboat trip across the lake",
+      "Visit the Kaptai dam",
+      "Explore small lake islands",
+      "Fishing and boat rides",
+      "Hilltop views of the lake"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kaptai_Lake.jpg/800px-Kaptai_Lake.jpg"
+  },
+  {
+    "id": "patenga",
+    "name": "Patenga",
+    "country": "Bangladesh",
+    "latitude": 22.2437,
+    "longitude": 91.8155,
+    "category": "Beach",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "A popular urban beach near Chattogram port where the river meets the Bay of Bengal.",
+    "recommendedActivities": [
+      "Evening stroll on the sea wall",
+      "Watch ships in the port channel",
+      "Sunset over the Bay of Bengal",
+      "Crab curry by the shore",
+      "Visit the nearby Shandwip island"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Patenga_Beach.jpg/800px-Patenga_Beach.jpg"
+  },
+  {
+    "id": "sonargaon",
+    "name": "Sonargaon",
+    "country": "Bangladesh",
+    "latitude": 23.65,
+    "longitude": 90.6036,
+    "category": "Historical",
+    "district": "Narayanganj",
+    "division": "Dhaka",
+    "shortDescription": "The ancient capital of Bengal, home to the folk museum 'Panam City' and centuries-old monuments.",
+    "recommendedActivities": [
+      "Walk through Panam City ruins",
+      "Visit the Folk Art & Crafts Museum",
+      "Explore the Mughal-era mosques",
+      "Photography of colonial-era architecture",
+      "Cultural heritage tour"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Panam_City_Sonargaon.jpg/800px-Panam_City_Sonargaon.jpg"
+  },
+  {
+    "id": "madhabkunda",
+    "name": "Madhabkunda",
+    "country": "Bangladesh",
+    "latitude": 24.6325,
+    "longitude": 92.2175,
+    "category": "Nature",
+    "district": "Moulvibazar",
+    "division": "Sylhet",
+    "shortDescription": "The largest waterfall in Bangladesh, plunging through layers of green forest in Moulvibazar.",
+    "recommendedActivities": [
+      "Hike to the waterfall viewpoint",
+      "Bathing in the plunge pool",
+      "Tea garden walks",
+      "Birdwatching in the forest",
+      "Picnic by the falls"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Madhabkunda_Waterfall.jpg/800px-Madhabkunda_Waterfall.jpg"
+  },
+  {
+    "id": "paharpur",
+    "name": "Paharpur",
+    "country": "Bangladesh",
+    "latitude": 25.0306,
+    "longitude": 88.9764,
+    "category": "Historical",
+    "district": "Naogaon",
+    "division": "Rajshahi",
+    "shortDescription": "Home to Somapura Mahavihara, the largest Buddhist monastery ruins in South Asia and a UNESCO World Heritage site.",
+    "recommendedActivities": [
+      "Explore the Somapura Mahavihara ruins",
+      "Visit the archaeological museum",
+      "Sunset view from the stupa terrace",
+      "Guided heritage tour",
+      "Photography of the ancient terracotta"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Somapura_Mahavihara.jpg/800px-Somapura_Mahavihara.jpg"
+  },
+  {
+    "id": "bagerhat",
+    "name": "Bagerhat",
+    "country": "Bangladesh",
+    "latitude": 22.674,
+    "longitude": 89.735,
+    "category": "Historical",
+    "district": "Bagerhat",
+    "division": "Khulna",
+    "shortDescription": "A UNESCO city of mosques, home to the magnificent Sixty Dome Mosque of Khan Jahan Ali.",
+    "recommendedActivities": [
+      "Visit the Sixty Dome Mosque",
+      "Explore the many historic mosques",
+      "Boat ride on the Ghora Dighi lake",
+      "Visit Khan Jahan Ali's tomb",
+      "Heritage photography tour"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Shat_Gombuj_Mosque.jpg/800px-Shat_Gombuj_Mosque.jpg"
+  },
+  {
+    "id": "chattogram",
+    "name": "Chattogram",
+    "country": "Bangladesh",
+    "latitude": 22.3355,
+    "longitude": 91.8322,
+    "category": "City",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "The major commercial port city of Bangladesh, known as the gateway to the Bay of Bengal.",
+    "recommendedActivities": [
+      "Explore the double-decker crossing",
+      "Visit the Chattogram Cantonment",
+      "River cruise on Karnaphuli",
+      "Shopping at New Market",
+      "Night view from Skyline Building"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Chittagong_City.jpg/800px-Chittagong_City.jpg"
+  },
+  {
+    "id": "patenga-beach",
+    "name": "Patenga Beach",
+    "category": "Beach",
+    "latitude": 22.2437,
+    "longitude": 91.8155,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "A popular urban beach near Chattogram port where the river meets the Bay of Bengal.",
+    "recommendedActivities": [
+      "Evening stroll on the sea wall",
+      "Watch ships in the port channel",
+      "Sunset over the Bay of Bengal",
+      "Crab curry by the shore",
+      "Visit the nearby Shandwip island"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Patenga_Beach.jpg/800px-Patenga_Beach.jpg"
+  },
+  {
+    "id": "foys-lake",
+    "name": "Foy's Lake",
+    "category": "Lake",
+    "latitude": 22.3712,
+    "longitude": 91.8531,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "A scenic man-made lake in Chattogram, popular for boating and amusement parks.",
+    "recommendedActivities": [
+      "Boat riding on the lake",
+      "Visit the amusement park",
+      "Visit the miniature Bangladesh",
+      "Fishing and picnicking",
+      "Sunset views over the water"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Foy%27s_Lake.jpg/800px-Foy%27s_Lake.jpg"
+  },
+  {
+    "id": "batali-hill",
+    "name": "Batali Hill",
+    "category": "Hill",
+    "latitude": 22.3581,
+    "longitude": 91.8225,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "The highest hill in Chattogram city, offering panoramic views of the city and surrounding areas.",
+    "recommendedActivities": [
+      "Hike to the summit",
+      "View city panorama from top",
+      "Visit the communicators' hostel",
+      "Photography of Chattogram skyline",
+      "Sunrise viewing"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Batali_Hill.jpg/800px-Batali_Hill.jpg"
+  },
+  {
+    "id": "war-cemetery",
+    "name": "Chattogram War Cemetery",
+    "category": "Historical",
+    "latitude": 22.3456,
+    "longitude": 91.8134,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "A Commonwealth War Cemetery maintaining the graves of Allied soldiers who died in World War II.",
+    "recommendedActivities": [
+      "Pay respects at the war graves",
+      "Read the historical inscriptions",
+      "Reflect in the peaceful grounds",
+      "Photography of the memorial",
+      "Learn about local wartime history"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Chittagong_War_Cemetery.jpg/800px-Chittagong_War_Cemetery.jpg"
+  },
+  {
+    "id": "ethnological-museum",
+    "name": "Ethnological Museum",
+    "category": "Historical",
+    "latitude": 22.3501,
+    "longitude": 91.7981,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "Bangladesh's only ethnological museum, displaying the cultures of the country's diverse tribal groups.",
+    "recommendedActivities": [
+      "Explore tribal cultural exhibits",
+      "View indigenous artifacts and textiles",
+      "Learn about Bangladesh's ethnic groups",
+      "Photography of cultural displays",
+      "Research tribal history"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Ethnological_Museum_Chittagong.jpg/800px-Ethnological_Museum_Chittagong.jpg"
+  },
+  {
+    "id": "chattogram-zoo",
+    "name": "Chattogram Zoo",
+    "category": "Nature",
+    "latitude": 22.3632,
+    "longitude": 91.8076,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "A zoological garden in Chattogram featuring local and exotic animals.",
+    "recommendedActivities": [
+      "View wildlife and exotic animals",
+      "Family outing and picnicking",
+      "Bird watching",
+      "Education on conservation",
+      "Photography"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Chittagong_Zoo.jpg/800px-Chittagong_Zoo.jpg"
+  },
+  {
+    "id": "sitakunda",
+    "name": "Sitakunda",
+    "category": "Nature",
+    "latitude": 22.8201,
+    "longitude": 91.3301,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "A upazila town in Chattogram division known for its hills, rivers and religious sites.",
+    "recommendedActivities": [
+      "Visit the Mahamuni Hill",
+      "Explore the Patiya River",
+      "Visit ancient temples and shrines",
+      "Nature walks and hiking",
+      "Photography of landscapes"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Sitakunda_Hills.jpg/800px-Sitakunda_Hills.jpg"
+  },
+  {
+    "id": "chandranath-hill",
+    "name": "Chandranath Hill",
+    "category": "Hill",
+    "latitude": 22.1251,
+    "longitude": 91.8334,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "A sacred hill in the Chattogram Hill Tracts, home to a Hindu temple at the summit.",
+    "recommendedActivities": [
+      "Hike to the temple at the summit",
+      "View sunrise from the hill",
+      "Explore the forest trail",
+      "Religious pilgrimage",
+      "Photography of hill landscapes"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Chandranath_Hill.jpg/800px-Chandranath_Hill.jpg"
+  },
+  {
+    "id": "guliakhali-beach",
+    "name": "Guliakhali Beach",
+    "category": "Beach",
+    "latitude": 22.1701,
+    "longitude": 91.9201,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "A quiet beach in Chattogram district known for its clean sand and fishing villages.",
+    "recommendedActivities": [
+      "Beach walking and relaxation",
+      "Fishing with local villagers",
+      "View the sunrise",
+      "Visit nearby fishing settlements",
+      "Photography of coastal life"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Guliakhali_Beach.jpg/800px-Guliakhali_Beach.jpg"
+  },
+  {
+    "id": "bashbaria-beach",
+    "name": "Bashbaria Beach",
+    "category": "Beach",
+    "latitude": 22.2801,
+    "longitude": 91.9001,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "A scenic beach in Chattogram area with coconut groves and less commercialization.",
+    "recommendedActivities": [
+      "Beach walking and coconut grove views",
+      "Seafood dining at local shops",
+      "Photography of coastal landscape",
+      "Bird watching",
+      "Sunset viewing"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Bashbaria_Beach.jpg/800px-Bashbaria_Beach.jpg"
+  },
+  {
+    "id": "khoiyachora-waterfall",
+    "name": "Khoiyachora Waterfall",
+    "category": "Nature",
+    "latitude": 22.7501,
+    "longitude": 91.5001,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "A beautiful waterfall in Fatikchhari upazila, Chattogram division, within hiking distance from nearby villages.",
+    "recommendedActivities": [
+      "Hike to the waterfall",
+      "Bathing in the plunge pool",
+      "Picnic near the falls",
+      "Birdwatching and photography",
+      "Explore the surrounding forest"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Khoiyachora_Waterfall.jpg/800px-Khoiyachora_Waterfall.jpg"
+  },
+  {
+    "id": "naphittachora-waterfall",
+    "name": "Naphittachora Waterfall",
+    "category": "Nature",
+    "latitude": 22.7301,
+    "longitude": 91.4801,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "A scenic waterfall in Fatikchhari upazila, less visited and relatively pristine.",
+    "recommendedActivities": [
+      "Hike to the waterfall",
+      "Bathing in the natural pool",
+      "Picnic and camping",
+      "Birdwatching and photography",
+      "Explore the river valley"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Naphittachora_Waterfall.jpg/800px-Naphittachora_Waterfall.jpg"
+  },
+  {
+    "id": "mohamaya-lake",
+    "name": "Mohamaya Lake",
+    "category": "Lake",
+    "latitude": 22.4001,
+    "longitude": 91.7501,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "A serene lake in Chattogram district, surrounded by greenery and local villages.",
+    "recommendedActivities": [
+      "Boat riding on the lake",
+      "Fishing and relaxation",
+      "Picnicking on the banks",
+      "Bird watching",
+      "Sunset views over the water"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Mohamaya_Lake.jpg/800px-Mohamaya_Lake.jpg"
+  },
+  {
+    "id": "bhatiari",
+    "name": "Bhatiari",
+    "category": "Nature",
+    "latitude": 22.2668,
+    "longitude": 92.1168,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "An upazila in Chattogram division known for its river systems and natural beauty.",
+    "recommendedActivities": [
+      "River boat rides",
+      "Explore the riverbanks and villages",
+      "Fishing and farming experiences",
+      "Photography of rural life",
+      "Visit local markets"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Bhatiari_River.jpg/800px-Bhatiari_River.jpg"
+  },
+  {
+    "id": "mirsarai",
+    "name": "Mirsarai",
+    "category": "Nature",
+    "latitude": 22.5334,
+    "longitude": 91.8834,
+    "country": "Bangladesh",
+    "district": "Chattogram",
+    "division": "Chattogram",
+    "shortDescription": "An upazila in Chattogram division with coastal areas, hills and agricultural lands.",
+    "recommendedActivities": [
+      "Explore the coastal areas",
+      "Visit the hills and forests",
+      "Agricultural field tours",
+      "Photography of landscapes",
+      "Local village experience"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Mirsarai_Hills.jpg/800px-Mirsarai_Hills.jpg"
+  }
+]

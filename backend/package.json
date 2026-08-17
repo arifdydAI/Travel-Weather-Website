@@ -1,0 +1,26 @@
+{
+  "name": "travel-weather-backend",
+  "version": "1.0.0",
+  "description": "Express backend for the Weather-Based Travel Recommendation website. Fetches OpenWeather data and computes Travel Scores.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "travel",
+    "weather",
+    "openweather",
+    "recommendation",
+    "bangladesh"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}

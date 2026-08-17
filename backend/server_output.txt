@@ -1,0 +1,6 @@
+==============================================
+  Weather-Based Travel Recommendation API
+  Running on http://localhost:3000
+==============================================
+  OpenWeather API key detected.
+==============================================
