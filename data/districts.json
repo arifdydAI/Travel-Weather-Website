@@ -5,7 +5,7 @@
     "division": "Dhaka",
     "latitude": 23.8103,
     "longitude": 90.4125,
-    "destinationCount": 0
+    "destinationCount": 8
   },
   {
     "id": "faridpur",
@@ -13,7 +13,7 @@
     "division": "Dhaka",
     "latitude": 23.6071,
     "longitude": 89.8429,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "gazipur",
@@ -21,7 +21,7 @@
     "division": "Dhaka",
     "latitude": 23.9999,
     "longitude": 90.4203,
-    "destinationCount": 0
+    "destinationCount": 5
   },
   {
     "id": "gopalganj",
@@ -29,7 +29,7 @@
     "division": "Dhaka",
     "latitude": 23.0057,
     "longitude": 89.8266,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "kishoreganj",
@@ -37,7 +37,7 @@
     "division": "Dhaka",
     "latitude": 24.4389,
     "longitude": 90.7829,
-    "destinationCount": 0
+    "destinationCount": 6
   },
   {
     "id": "madaripur",
@@ -45,7 +45,7 @@
     "division": "Dhaka",
     "latitude": 23.1632,
     "longitude": 90.1884,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "manikganj",
@@ -53,7 +53,7 @@
     "division": "Dhaka",
     "latitude": 23.8644,
     "longitude": 90.0047,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "munshiganj",
@@ -61,15 +61,15 @@
     "division": "Dhaka",
     "latitude": 23.5436,
     "longitude": 90.5286,
-    "destinationCount": 0
+    "destinationCount": 5
   },
   {
     "id": "narayanganj",
     "name": "Narayanganj",
     "division": "Dhaka",
     "latitude": 23.6238,
-    "longitude": 90.5000,
-    "destinationCount": 1
+    "longitude": 90.5,
+    "destinationCount": 5
   },
   {
     "id": "narsingdi",
@@ -77,7 +77,7 @@
     "division": "Dhaka",
     "latitude": 23.9322,
     "longitude": 90.7176,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "rajbari",
@@ -85,7 +85,7 @@
     "division": "Dhaka",
     "latitude": 23.7574,
     "longitude": 89.6444,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "shariatpur",
@@ -93,7 +93,7 @@
     "division": "Dhaka",
     "latitude": 23.2423,
     "longitude": 90.4348,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "tangail",
@@ -101,7 +101,7 @@
     "division": "Dhaka",
     "latitude": 24.2513,
     "longitude": 89.9167,
-    "destinationCount": 0
+    "destinationCount": 5
   },
   {
     "id": "chattogram",
@@ -109,7 +109,7 @@
     "division": "Chattogram",
     "latitude": 22.3569,
     "longitude": 91.7832,
-    "destinationCount": 17
+    "destinationCount": 22
   },
   {
     "id": "cox-bazar",
@@ -117,7 +117,7 @@
     "division": "Chattogram",
     "latitude": 21.4272,
     "longitude": 92.0058,
-    "destinationCount": 2
+    "destinationCount": 12
   },
   {
     "id": "bandarban",
@@ -125,15 +125,15 @@
     "division": "Chattogram",
     "latitude": 22.1953,
     "longitude": 92.2184,
-    "destinationCount": 2
+    "destinationCount": 13
   },
   {
     "id": "rangamati",
     "name": "Rangamati",
     "division": "Chattogram",
-    "latitude": 22.6500,
+    "latitude": 22.65,
     "longitude": 92.1914,
-    "destinationCount": 3
+    "destinationCount": 10
   },
   {
     "id": "khagrachhari",
@@ -141,7 +141,7 @@
     "division": "Chattogram",
     "latitude": 23.1197,
     "longitude": 91.9844,
-    "destinationCount": 0
+    "destinationCount": 6
   },
   {
     "id": "cumilla",
@@ -149,7 +149,7 @@
     "division": "Chattogram",
     "latitude": 23.4607,
     "longitude": 91.1809,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "chandpur",
@@ -157,15 +157,15 @@
     "division": "Chattogram",
     "latitude": 23.2333,
     "longitude": 90.6667,
-    "destinationCount": 0
+    "destinationCount": 2
   },
   {
     "id": "brahmanbaria",
     "name": "Brahmanbaria",
     "division": "Chattogram",
-    "latitude": 23.9570,
+    "latitude": 23.957,
     "longitude": 91.1119,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "feni",
@@ -173,7 +173,7 @@
     "division": "Chattogram",
     "latitude": 23.0162,
     "longitude": 91.3981,
-    "destinationCount": 0
+    "destinationCount": 2
   },
   {
     "id": "lakshmipur",
@@ -181,15 +181,15 @@
     "division": "Chattogram",
     "latitude": 22.9424,
     "longitude": 90.8411,
-    "destinationCount": 0
+    "destinationCount": 2
   },
   {
     "id": "noakhali",
     "name": "Noakhali",
     "division": "Chattogram",
     "latitude": 22.8333,
-    "longitude": 91.1000,
-    "destinationCount": 0
+    "longitude": 91.1,
+    "destinationCount": 3
   },
   {
     "id": "rajshahi",
@@ -197,7 +197,7 @@
     "division": "Rajshahi",
     "latitude": 24.3745,
     "longitude": 88.6042,
-    "destinationCount": 0
+    "destinationCount": 5
   },
   {
     "id": "bogura",
@@ -205,7 +205,7 @@
     "division": "Rajshahi",
     "latitude": 24.8466,
     "longitude": 89.3773,
-    "destinationCount": 0
+    "destinationCount": 6
   },
   {
     "id": "joypurhat",
@@ -213,23 +213,23 @@
     "division": "Rajshahi",
     "latitude": 25.0963,
     "longitude": 89.0252,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "naogaon",
     "name": "Naogaon",
     "division": "Rajshahi",
-    "latitude": 24.8000,
+    "latitude": 24.8,
     "longitude": 88.9333,
-    "destinationCount": 1
+    "destinationCount": 5
   },
   {
     "id": "natore",
     "name": "Natore",
     "division": "Rajshahi",
-    "latitude": 24.4200,
-    "longitude": 89.0000,
-    "destinationCount": 0
+    "latitude": 24.42,
+    "longitude": 89,
+    "destinationCount": 3
   },
   {
     "id": "chapainawabganj",
@@ -237,7 +237,7 @@
     "division": "Rajshahi",
     "latitude": 24.5968,
     "longitude": 88.2706,
-    "destinationCount": 0
+    "destinationCount": 4
   },
   {
     "id": "pabna",
@@ -245,7 +245,7 @@
     "division": "Rajshahi",
     "latitude": 24.0064,
     "longitude": 89.2372,
-    "destinationCount": 0
+    "destinationCount": 4
   },
   {
     "id": "sirajganj",
@@ -253,7 +253,7 @@
     "division": "Rajshahi",
     "latitude": 24.4533,
     "longitude": 89.7006,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "khulna",
@@ -261,7 +261,7 @@
     "division": "Khulna",
     "latitude": 22.8456,
     "longitude": 89.5403,
-    "destinationCount": 0
+    "destinationCount": 5
   },
   {
     "id": "bagerhat",
@@ -269,15 +269,15 @@
     "division": "Khulna",
     "latitude": 22.6513,
     "longitude": 89.7859,
-    "destinationCount": 1
+    "destinationCount": 5
   },
   {
     "id": "chuadanga",
     "name": "Chuadanga",
     "division": "Khulna",
-    "latitude": 23.6400,
-    "longitude": 88.8400,
-    "destinationCount": 0
+    "latitude": 23.64,
+    "longitude": 88.84,
+    "destinationCount": 2
   },
   {
     "id": "jashore",
@@ -285,7 +285,7 @@
     "division": "Khulna",
     "latitude": 23.1667,
     "longitude": 89.2167,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "jhenaidah",
@@ -293,7 +293,7 @@
     "division": "Khulna",
     "latitude": 23.5418,
     "longitude": 89.1838,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "kushtia",
@@ -301,7 +301,7 @@
     "division": "Khulna",
     "latitude": 23.9013,
     "longitude": 89.1205,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "magura",
@@ -309,7 +309,7 @@
     "division": "Khulna",
     "latitude": 23.4871,
     "longitude": 89.4199,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "meherpur",
@@ -317,7 +317,7 @@
     "division": "Khulna",
     "latitude": 23.7622,
     "longitude": 88.6318,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "narail",
@@ -325,23 +325,23 @@
     "division": "Khulna",
     "latitude": 23.1725,
     "longitude": 89.5126,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "satkhira",
     "name": "Satkhira",
     "division": "Khulna",
     "latitude": 22.7185,
-    "longitude": 89.0700,
-    "destinationCount": 0
+    "longitude": 89.07,
+    "destinationCount": 4
   },
   {
     "id": "barishal",
     "name": "Barishal",
     "division": "Barishal",
-    "latitude": 22.7010,
+    "latitude": 22.701,
     "longitude": 90.3535,
-    "destinationCount": 0
+    "destinationCount": 5
   },
   {
     "id": "barguna",
@@ -349,7 +349,7 @@
     "division": "Barishal",
     "latitude": 22.1513,
     "longitude": 90.1292,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "bhola",
@@ -357,7 +357,7 @@
     "division": "Barishal",
     "latitude": 22.6862,
     "longitude": 90.6482,
-    "destinationCount": 0
+    "destinationCount": 4
   },
   {
     "id": "jhalokathi",
@@ -365,7 +365,7 @@
     "division": "Barishal",
     "latitude": 22.6406,
     "longitude": 90.1987,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "patuakhali",
@@ -373,7 +373,7 @@
     "division": "Barishal",
     "latitude": 22.3596,
     "longitude": 90.3298,
-    "destinationCount": 1
+    "destinationCount": 4
   },
   {
     "id": "pirojpur",
@@ -381,7 +381,7 @@
     "division": "Barishal",
     "latitude": 22.5797,
     "longitude": 89.9752,
-    "destinationCount": 0
+    "destinationCount": 4
   },
   {
     "id": "sylhet",
@@ -389,7 +389,7 @@
     "division": "Sylhet",
     "latitude": 24.8949,
     "longitude": 91.8687,
-    "destinationCount": 3
+    "destinationCount": 17
   },
   {
     "id": "habiganj",
@@ -397,7 +397,7 @@
     "division": "Sylhet",
     "latitude": 24.3745,
     "longitude": 91.4155,
-    "destinationCount": 0
+    "destinationCount": 6
   },
   {
     "id": "moulvibazar",
@@ -405,15 +405,15 @@
     "division": "Sylhet",
     "latitude": 24.4829,
     "longitude": 91.7832,
-    "destinationCount": 2
+    "destinationCount": 11
   },
   {
     "id": "sunamganj",
     "name": "Sunamganj",
     "division": "Sylhet",
     "latitude": 25.0685,
-    "longitude": 91.4000,
-    "destinationCount": 1
+    "longitude": 91.4,
+    "destinationCount": 10
   },
   {
     "id": "rangpur",
@@ -421,7 +421,7 @@
     "division": "Rangpur",
     "latitude": 25.7439,
     "longitude": 89.2752,
-    "destinationCount": 0
+    "destinationCount": 2
   },
   {
     "id": "dinajpur",
@@ -429,7 +429,7 @@
     "division": "Rangpur",
     "latitude": 25.6279,
     "longitude": 88.6356,
-    "destinationCount": 0
+    "destinationCount": 4
   },
   {
     "id": "gaibandha",
@@ -437,7 +437,7 @@
     "division": "Rangpur",
     "latitude": 25.3285,
     "longitude": 89.5281,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "kurigram",
@@ -445,7 +445,7 @@
     "division": "Rangpur",
     "latitude": 25.8054,
     "longitude": 89.6361,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "lalmonirhat",
@@ -453,15 +453,15 @@
     "division": "Rangpur",
     "latitude": 25.9923,
     "longitude": 89.2847,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "nilphamari",
     "name": "Nilphamari",
     "division": "Rangpur",
     "latitude": 25.9317,
-    "longitude": 88.8560,
-    "destinationCount": 0
+    "longitude": 88.856,
+    "destinationCount": 2
   },
   {
     "id": "panchagarh",
@@ -469,7 +469,7 @@
     "division": "Rangpur",
     "latitude": 26.3411,
     "longitude": 88.5541,
-    "destinationCount": 0
+    "destinationCount": 4
   },
   {
     "id": "thakurgaon",
@@ -477,7 +477,7 @@
     "division": "Rangpur",
     "latitude": 26.0333,
     "longitude": 88.4667,
-    "destinationCount": 0
+    "destinationCount": 3
   },
   {
     "id": "mymensingh",
@@ -485,15 +485,15 @@
     "division": "Mymensingh",
     "latitude": 24.7471,
     "longitude": 90.4203,
-    "destinationCount": 0
+    "destinationCount": 4
   },
   {
     "id": "jamalpur",
     "name": "Jamalpur",
     "division": "Mymensingh",
-    "latitude": 24.9000,
-    "longitude": 89.9500,
-    "destinationCount": 0
+    "latitude": 24.9,
+    "longitude": 89.95,
+    "destinationCount": 4
   },
   {
     "id": "netrokona",
@@ -501,7 +501,7 @@
     "division": "Mymensingh",
     "latitude": 24.8709,
     "longitude": 90.7278,
-    "destinationCount": 0
+    "destinationCount": 5
   },
   {
     "id": "sherpur",
@@ -509,6 +509,6 @@
     "division": "Mymensingh",
     "latitude": 25.0189,
     "longitude": 90.0172,
-    "destinationCount": 0
+    "destinationCount": 4
   }
 ]

@@ -1,14 +1,14 @@
 /* ============================================================
-   SkyTrip — frontend logic
+   Traventure — frontend logic
    Talks only to the Express backend. No API key lives here.
    ============================================================ */
 
 (() => {
   'use strict';
 
-  // Backend base. Uses the same origin when served by Express,
-  // otherwise assumes the backend runs on http://localhost:3000.
-  const API_BASE = window.location.port === '3000' ? '' : 'http://localhost:3000';
+  // Backend base. Uses the same origin when served by Express or Vercel,
+  // so we use relative URLs (empty string) for all environments.
+  const API_BASE = '';
 
   // ---------- Small helpers ----------
   const $ = (sel) => document.querySelector(sel);
@@ -160,6 +160,7 @@
       state.all = data.recommendations || [];
       recTitle.textContent = `Best places to travel — ${state.date}`;
       recEyebrow.textContent = `${data.count} destinations · live weather`;
+      renderDivisions();
       render();
       if (!map) initMap();
     } catch (err) {
@@ -249,12 +250,13 @@
   }
 
   // ---------- Division/District Explorer Rendering ----------
-  function renderDivisions() {
+function renderDivisions() {
     if (!divisionGrid) return;
     divisionGrid.innerHTML = '';
 
-    // "All Divisions" button - use total destinations from state.all
-    const totalDestinations = state.all.length || 34;
+    // "All Divisions" button - use total destinations from divisions data (already loaded)
+    // Sum up destinationCount from all divisions
+    const totalDestinations = state.divisions.reduce((sum, div) => sum + (div.destinationCount || 0), 0);
     const allBtn = document.createElement('button');
     allBtn.className = 'division-btn' + (state.division === 'all' ? ' active' : '');
     allBtn.dataset.division = 'all';
@@ -516,13 +518,18 @@
         </div>
       </div>`;
 
+    const modalMedia = item.image
+      ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" class="modal-image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="card-cat-emoji" style="display:none;">${cat.emoji}</span>`
+      : `<span class="card-cat-emoji">${cat.emoji}</span>`;
+
     return `
       <div class="modal-hero" style="--grad-a:${cat.grad[0]};--grad-b:${cat.grad[1]}">
-        <span class="card-cat-emoji">${cat.emoji}</span>
+        ${modalMedia}
       </div>
       <div class="modal-main">
         <span class="chip">${escapeHtml(item.category)}</span>
         <h2 class="modal-title">${escapeHtml(item.name)}</h2>
+        ${item.location && item.location.length > 0 ? `<p class="modal-location-detail">📍 ${escapeHtml(item.location)}</p>` : ''}
         <p class="modal-location">📍 ${escapeHtml(item.country)} · ${item.latitude.toFixed(3)}, ${item.longitude.toFixed(3)}</p>
         <p class="modal-desc">${escapeHtml(item.shortDescription)}</p>
 
@@ -624,6 +631,66 @@
   // ---------- Map ----------
   let map = null;
   let markers = {};
+  let markerData = {}; // Store marker data for zoom-dependent sizing
+
+  // Calculate marker size based on zoom level
+  function getMarkerSize(zoom) {
+    if (zoom <= 5) return { size: 16, anchor: 8 };       // Country-level: ~16px
+    if (zoom <= 7) return { size: 18, anchor: 9 };       // Country-wide: ~18px
+    if (zoom <= 9) return { size: 24, anchor: 12 };      // Regional: ~24px
+    if (zoom <= 11) return { size: 30, anchor: 15 };     // Division-level: ~30px
+    if (zoom <= 13) return { size: 40, anchor: 20 };     // District-level: ~40px
+    if (zoom <= 15) return { size: 48, anchor: 24 };     // Local: ~48px
+    return { size: 56, anchor: 28 };                     // Very close: ~56px
+  }
+
+  // Create marker HTML with dynamic size
+  function createMarkerHtml(item, zoom) {
+    const { image, category, travelScore } = item;
+    const scoreRange = getScoreRange(travelScore);
+    const catColor = {
+      Excellent: 'var(--score-good)',
+      Good: 'var(--score-mid)',
+      Moderate: '#b7791f',
+      'Not Recommended': 'var(--score-bad)',
+    }[scoreRange];
+
+    const { size } = getMarkerSize(zoom);
+    const borderWidth = Math.max(1, Math.round(size * 0.06)); // Scale border with size
+
+    // Hide score text on fallback markers at low zoom to reduce clutter
+    const showScoreText = zoom >= 10;
+
+    if (image) {
+      return `<div class="marker-image-wrapper" style="width:${size}px;height:${size}px;border-radius:50%;background-image:url('${escapeHtml(image)}');background-size:cover;background-position:center;border:${borderWidth}px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.3);"></div>`;
+    } else {
+      const fontSize = Math.max(8, Math.round(size * 0.22));
+      const padding = Math.max(2, Math.round(size * 0.08));
+      const scoreText = showScoreText ? scoreRange : '';
+      return `<div class="marker-fallback" style="width:${size}px;height:${size}px;border-radius:50%;background:${catColor};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:${fontSize}px;color:#fff;border:${borderWidth}px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.3);text-align:center;line-height:1.2;padding:${padding}px;">${scoreText}</div>`;
+    }
+  }
+
+  // Update all markers for current zoom level
+  function updateMarkersForZoom() {
+    if (!map) return;
+    const zoom = map.getZoom();
+    const { size, anchor } = getMarkerSize(zoom);
+
+    Object.entries(markers).forEach(([id, marker]) => {
+      const data = markerData[id];
+      if (!data) return;
+
+      const html = createMarkerHtml(data.item, zoom);
+      const newIcon = L.divIcon({
+        html,
+        className: 'custom-marker',
+        iconSize: [size, size],
+        iconAnchor: [anchor, anchor],
+      });
+      marker.setIcon(newIcon);
+    });
+  }
 
   function initMap() {
     try {
@@ -647,36 +714,30 @@
         return;
       }
 
-      const meta = catMeta(category);
-      const scoreRange = getScoreRange(travelScore);
-      const catColor = {
-        Excellent: 'var(--score-good)',
-        Good: 'var(--score-mid)',
-        Moderate: '#b7791f',
-        'Not Recommended': 'var(--score-bad)',
-      }[scoreRange];
-
       const popupContent = createPopupContent(item);
 
-      // Create custom marker with destination image
-      const markerHtml = image
-        ? `<div class="marker-image-wrapper" style="background-image: url('${escapeHtml(image)}')"></div>`
-        : `<div class="marker-fallback" style="background: ${catColor}">${scoreRange}</div>`;
+      // Store marker data for zoom-dependent sizing
+      markerData[item.id] = { item };
+
+      // Create initial marker with zoom-appropriate size
+      const initialZoom = map.getZoom();
+      const markerHtml = createMarkerHtml(item, initialZoom);
+      const { size, anchor } = getMarkerSize(initialZoom);
 
       const marker = L.marker([lat, lng], {
         icon: L.divIcon({
           html: markerHtml,
           className: 'custom-marker',
-          iconSize: [48, 48],
-          iconAnchor: [24, 48],
+          iconSize: [size, size],
+          iconAnchor: [anchor, anchor],
         }),
       })
         .bindPopup(popupContent)
         .addTo(map);
 
-      // Add tooltip with destination name
+      // Add tooltip with destination name (hover only, not permanent)
       marker.bindTooltip(name, {
-        permanent: true,
+        permanent: false,
         direction: 'top',
         offset: [0, -28],
         className: 'map-marker-tooltip',
@@ -685,6 +746,9 @@
 
       markers[item.id] = marker;
     });
+
+    // Update markers on zoom change
+    map.on('zoomend', updateMarkersForZoom);
 
     // Fit markers to map with some padding
     fitMarkersToMap();
@@ -906,7 +970,7 @@ function getScoreRange(score) {
     if (latLngs.length === 0) return;
     const bounds = L.latLngBounds(latLngs);
     if (bounds.isValid()) {
-      map.fitBounds(bounds, { padding: { top: 40, bottom: 40, left: 40, right: 40 } });
+      map.fitBounds(bounds, { padding: [40, 40] });
     }
   }
 

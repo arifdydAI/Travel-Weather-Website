@@ -56,7 +56,12 @@ input { font-family: inherit; }
 
 .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
-.brand-mark { font-size: 28px; }
+.brand-logo {
+  width: 88px;
+  height: 88px;
+  border-radius: 12px;
+  object-fit: contain;
+}
 .brand-name { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
 .brand-name span { color: var(--accent-dark); }
 
@@ -253,6 +258,10 @@ input { font-family: inherit; }
 }
 
 @media (max-width: 600px) {
+  .brand-logo {
+    width: 60px;
+    height: 60px;
+  }
   .division-btn,
   .district-btn {
     min-width: calc(50% - 6px);
@@ -591,6 +600,54 @@ input { font-family: inherit; }
 .site-footer a { color: var(--accent); text-decoration: none; }
 .site-footer strong { color: #fff; }
 
+.creator-credit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  width: 100%;
+}
+
+.creator-avatar {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  /* Improve image rendering quality for downscaled images */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Force GPU acceleration for sharper rendering */
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.creator-text {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .creator-avatar {
+    width: 150px;
+    height: 150px;
+  }
+  .creator-text {
+    font-size: 15px;
+  }
+  .site-footer {
+    padding: 28px 0;
+  }
+}
+
 /* ============ Modal ============ */
 .modal-overlay {
   position: fixed; inset: 0; z-index: 100; background: rgba(10, 42, 52, 0.6);
@@ -620,11 +677,23 @@ input { font-family: inherit; }
 
 /* Modal hero */
 .modal-hero {
+  position: relative; overflow: hidden;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0; height: 220px;
   margin-bottom: 32px;
+  display: flex; align-items: center; justify-content: center;
   background: linear-gradient(135deg, var(--grad-a, #0f4c5c), var(--grad-b, #2a9d8f));
 }
 .modal-hero .card-cat-emoji { font-size: 80px; }
+
+/* Modal destination photograph */
+.modal-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
 
 /* Modal main content */
 .modal-main { padding: 0 24px 24px; }
@@ -680,13 +749,13 @@ input { font-family: inherit; }
 }
 .filter-chip:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
 .filter-chip.active { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 4px 12px rgba(15, 76, 92, 0.28); }
-.map-container { height: 600px; width: 100%; border-radius: var(--radius-lg); overflow: hidden; }
+.map-container { height: 600px; width: 100%; border-radius: var(--radius-lg); overflow: hidden; position: relative; }
 .map-container[hidden] { display: none; }
 
 @media (max-width: 768px) {
   .map-container { height: 400px; }
 }
-.map-legend { position: absolute; bottom: 20px; left: 20px; background: rgba(255,255,255,0.9); padding: 12px 16px; border-radius: var(--radius-md); font-size: 13px; z-index: 1000; }
+.map-legend { position: absolute; bottom: 20px; left: 20px; background: rgba(255,255,255,0.9); padding: 12px 16px; border-radius: var(--radius-md); font-size: 13px; z-index: 10; }
 .map-legend .legend-item { margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
 .map-legend .legend-color { width: 14px; height: 14px; border-radius: 3px; }
 .legend-excellent { background: var(--score-good); }
@@ -858,7 +927,9 @@ input { font-family: inherit; }
 
 /* Image fallback for broken images */
 .card-image[style*="display: none"],
-.card-image[hidden] {
+.card-image[hidden],
+.modal-image[style*="display: none"],
+.modal-image[hidden] {
   display: none;
 }
 

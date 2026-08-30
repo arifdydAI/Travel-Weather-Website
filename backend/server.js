@@ -15,7 +15,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
-require('dotenv').config();
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 app.use(cors());
@@ -457,6 +457,16 @@ function getDistrictsForDivision(division) {
 }
 
 // Public list of divisions.
+
+
+// Auth routes - DISABLED (Admin Panel paused)
+/*
+const authRoutes = require('./api/auth.js');
+app.post('/api/auth/login', require('./api/auth.js').login);
+app.post('/api/auth/logout', require('./api/auth.js').logout);
+app.get('/api/auth/status', require('./api/auth.js').status);
+*/
+
 app.get('/api/divisions', (req, res) => {
   res.json({ divisions: getDivisions() });
 });
@@ -499,6 +509,7 @@ app.get('/api/destinations', (req, res) => {
       category: d.category,
       shortDescription: d.shortDescription,
       image: d.image,
+      location: d.location,
     })),
   });
 });
@@ -595,7 +606,7 @@ app.use((err, req, res, next) => {
 /* Startup                                                             */
 /* ------------------------------------------------------------------ */
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log('==============================================');
   console.log('  Weather-Based Travel Recommendation API');
   console.log(`  Running on http://localhost:${PORT}`);
@@ -609,4 +620,7 @@ app.listen(PORT, () => {
     console.log('  OpenWeather API key detected.');
   }
   console.log('==============================================');
+}).on('error', (err) => {
+  console.error('Server listen error:', err);
+  process.exit(1);
 });

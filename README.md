@@ -12,12 +12,15 @@ no frontend frameworks.
 ## Project Overview
 
 - Pick a travel date, search destinations, and filter by category.
+- Explore Bangladesh hierarchically: **Division → District → Destinations**,
+  or browse all recommendations at once.
 - The backend fetches **live weather** for every destination (temperature,
   feels-like, condition, rain probability, precipitation, wind, humidity,
   visibility) using each destination's latitude/longitude.
 - A documented scoring algorithm turns that weather into a **Travel Score
   (0–100)** with category-specific weights.
-- Destinations are sorted from highest to lowest score.
+- Destinations are sorted from highest to lowest score and plotted on an
+  interactive **Leaflet map**, color-coded by recommendation level.
 - Click any destination for a detailed weather + activities view.
 
 > ⚠️ **No fake weather data.** All recommendations are based on actual
@@ -32,7 +35,7 @@ no frontend frameworks.
 ```
 Travel-Weather-Website/
 ├── frontend/
-│   ├── index.html        # Homepage markup
+│   ├── index.html        # Homepage markup (hero, explorer, map, modal)
 │   ├── style.css         # Design system + responsive layout
 │   └── script.js         # Vanilla JS app logic (fetch, render, modal)
 ├── backend/
@@ -40,7 +43,10 @@ Travel-Weather-Website/
 │   ├── package.json      # Dependencies & scripts
 │   └── .env              # API key + port (git-ignored)
 ├── data/
-│   └── destinations.json # 18 Bangladeshi destinations
+│   ├── destinations.json # 235 Bangladeshi destinations (64 districts, 8 divisions)
+│   └── districts.json    # 64 districts with division + centroid coords + counts
+├── start.bat / start_server.bat  # Quick-start helpers (PORT=3000)
+├── find-images.js, process-all.js, …  # One-off data/image population scripts
 ├── .gitignore
 └── README.md
 ```
@@ -67,11 +73,14 @@ Requires **Node.js 18+** (uses the built-in global `fetch`).
 
 ```env
 OPENWEATHER_API_KEY=YOUR_API_KEY_HERE
-PORT=5000
+PORT=3000
 ```
 
 The key is **only** read server-side via `dotenv` and is **never** exposed to
 the frontend. `backend/.env` is in `.gitignore` so it can't be committed.
+
+> The frontend expects the backend on **port 3000** (it talks to
+> `http://localhost:3000` when not served from the same origin).
 
 ---
 
@@ -116,6 +125,9 @@ implementation.
 
 | Endpoint                                    | Description                                        |
 |---------------------------------------------|----------------------------------------------------|
+| `GET /api/divisions`                        | All 8 divisions with district/destination counts   |
+| `GET /api/districts?division=Chattogram`    | Districts of one division                          |
+| `GET /api/districts/all`                    | All 64 districts                                   |
 | `GET /api/destinations`                     | List all destinations (no weather)                 |
 | `GET /api/destinations/:id?date=YYYY-MM-DD` | One destination + optional weather & score         |
 | `GET /api/recommendations?date=YYYY-MM-DD`  | Weather + score for all, sorted high → low         |
@@ -135,7 +147,8 @@ cd backend
 npm start
 ```
 
-Open **http://localhost:5000** — Express serves the `frontend/` folder too.
+Open **http://localhost:3000** — Express serves the `frontend/` folder too.
+(On Windows you can also just run `start_server.bat` in the repo root.)
 
 ### Option B — separate frontend server
 
@@ -151,9 +164,32 @@ npx serve frontend
 
 ## Data Source
 
-- 18 destinations in `data/destinations.json` (Cox's Bazar, Sajek Valley,
-  Bandarban, Rangamati, Sylhet, Sreemangal, Saint Martin's Island, Kuakata,
-  Jaflong, Ratargul, Tanguar Haor, Nafakhum, Kaptai, Patenga, Sonargaon,
-  Madhabkunda, Paharpur, Bagerhat), each with real lat/lon coordinates.
+- `data/destinations.json` — 235 destinations across all 64 districts and
+  8 divisions of Bangladesh, each with real lat/lon coordinates, a category
+  (`Beach`, `Hill`, `Nature`, `Forest`, `Historical`, `Lake`, `City`,
+  `Museum`), short description, recommended activities, and (where available)
+  a Wikimedia Commons image. Destinations without photos simply omit the
+  `image` field.
+- `data/districts.json` — the 64 districts with division, centroid
+  coordinates, and destination counts (kept in sync with destinations.json).
 - Live weather: [OpenWeather](https://openweathermap.org) — current weather +
   5-day/3-hour forecast endpoints.
+
+### Current data coverage
+
+| Division   | Destinations |
+|------------|-------------:|
+| Dhaka      | 55 |
+| Khulna     | 34 |
+| Rajshahi   | 33 |
+| Chattogram | 25 |
+| Sylhet     | 24 |
+| Barishal   | 23 |
+| Rangpur    | 24 |
+| Mymensingh | 17 |
+| **Total**  | **235** |
+
+Images: ~156/235 destinations have photos; image population is ongoing.
+Chattogram Division is currently the thinnest outside Chattogram district —
+Khagrachhari, Cumilla, Chandpur, Feni, Lakshmipur and Noakhali have no
+destinations yet.
