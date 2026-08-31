@@ -118,6 +118,30 @@
   const backToDistrictsBtn = $('#back-to-districts');
   const districtCategoryFiltersEl = $('#district-category-filters');
 
+  // Mobile menu elements
+  const mobileMenuBtn = $('.mobile-menu-btn');
+  const navLinks = $('#nav-links');
+
+  // Mobile menu toggle
+  function initMobileMenu() {
+    if (!mobileMenuBtn || !navLinks) return;
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('active');
+      mobileMenuBtn.classList.toggle('active');
+      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
   // ---------- API ----------
   async function fetchJSON(url) {
     const res = await fetch(url);
@@ -989,5 +1013,6 @@ function getScoreRange(score) {
   };
 
   // Initial load
+  initMobileMenu();
   loadDivisions().then(loadRecommendations);
 })();

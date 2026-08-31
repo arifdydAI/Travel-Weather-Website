@@ -307,6 +307,13 @@ input { font-family: inherit; }
   gap: 24px;
 }
 
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+}
+
 .card {
   background: var(--card-bg);
   border-radius: var(--radius-lg);
@@ -762,6 +769,21 @@ input { font-family: inherit; }
 .legend-good { background: var(--score-mid); }
 .legend-moderate { background: #b7791f; }
 .legend-bad { background: var(--score-bad); }
+
+@media (max-width: 768px) {
+  .map-legend {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin: 12px auto 0;
+    max-width: 300px;
+    text-align: center;
+  }
+  .map-legend .legend-item {
+    display: inline-flex;
+    margin: 0 8px 8px 0;
+  }
+}
 
 .map-marker-tooltip {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
