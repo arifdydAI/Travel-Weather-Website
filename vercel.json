@@ -4,6 +4,10 @@
   "outputDirectory": "frontend",
   "rewrites": [
     {
+      "source": "/api/destinations/:id",
+      "destination": "/api/destinations?id=:id"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     },
