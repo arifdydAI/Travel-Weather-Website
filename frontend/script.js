@@ -58,6 +58,7 @@
   }
 
   function recoClass(label) {
+    if (typeof label !== 'string') return 'reco-bad';
     if (label.startsWith('Excellent')) return 'reco-excellent';
     if (label.startsWith('Good')) return 'reco-good';
     if (label.startsWith('Moderate')) return 'reco-moderate';
@@ -478,6 +479,7 @@ function renderDivisions() {
   function cardHTML(item) {
     const cat = catMeta(item.category);
     const w = item.weather || {};
+    const recommendation = typeof item?.recommendation === 'string' ? item.recommendation : 'Not recommended';
     const img = item.image
       ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" class="card-image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="card-cat-emoji" style="display:none;">${cat.emoji}</span>`
       : `<span class="card-cat-emoji">${cat.emoji}</span>`;
@@ -503,7 +505,7 @@ function renderDivisions() {
           </div>
           <div class="card-rain"><span class="rain-dot">💧</span>${w.rainProbability ?? '—'}%</div>
         </div>
-        <div class="card-recommend ${recoClass(item.recommendation)}">${escapeHtml(item.recommendation)}</div>
+        <div class="card-recommend ${recoClass(recommendation)}">${escapeHtml(recommendation)}</div>
         <p class="card-hint">Click for full details →</p>
       </div>`;
   }
@@ -527,7 +529,8 @@ function renderDivisions() {
   function detailsHTML(item) {
     const cat = catMeta(item.category);
     const w = item.weather || {};
-    const activities = item.recommendedActivities || [];
+    const activities = Array.isArray(item.recommendedActivities) ? item.recommendedActivities : [];
+    const recommendation = typeof item?.recommendation === 'string' ? item.recommendation : 'Not recommended';
 
     const noteHtml = w.note
       ? `<div class="modal-note">ℹ️ ${escapeHtml(w.note)}</div>`
@@ -562,7 +565,7 @@ function renderDivisions() {
             <span class="score-ring ${scoreClass(item.travelScore)}">${item.travelScore}</span>
             <small>Travel Score / 100</small>
           </span>
-          <span class="chip">${escapeHtml(item.recommendation)}</span>
+          <span class="chip">${escapeHtml(recommendation)}</span>
         </div>
 
         <div class="modal-grid">
@@ -576,8 +579,8 @@ function renderDivisions() {
           ${metric('⛅', 'Condition', escapeHtml(w.condition || '—'))}
         </div>
 
-        <div class="modal-reco ${recoClass(item.recommendation)}">
-          <strong>${escapeHtml(item.recommendation)}</strong>
+        <div class="modal-reco ${recoClass(recommendation)}">
+          <strong>${escapeHtml(recommendation)}</strong>
           ${escapeHtml(item.shortRecommendation || '')}
         </div>
 
