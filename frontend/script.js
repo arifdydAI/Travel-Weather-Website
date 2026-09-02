@@ -123,23 +123,37 @@
   const mobileMenuBtn = $('.mobile-menu-btn');
   const navLinks = $('#nav-links');
 
+  function setMobileMenuState(isOpen) {
+    navLinks.classList.toggle('active', isOpen);
+    mobileMenuBtn.classList.toggle('active', isOpen);
+    mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+    document.body.classList.toggle('menu-open', isOpen);
+  }
+
   // Mobile menu toggle
   function initMobileMenu() {
     if (!mobileMenuBtn || !navLinks) return;
+
     mobileMenuBtn.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('active');
-      mobileMenuBtn.classList.toggle('active');
-      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      const shouldOpen = !navLinks.classList.contains('active');
+      setMobileMenuState(shouldOpen);
     });
-    // Close menu when clicking a link
+
     navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', () => setMobileMenuState(false));
+    });
+
+    document.addEventListener('click', (event) => {
+      const clickedInsideMenu = navLinks.contains(event.target) || mobileMenuBtn.contains(event.target);
+      if (navLinks.classList.contains('active') && !clickedInsideMenu) {
+        setMobileMenuState(false);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+        setMobileMenuState(false);
+      }
     });
   }
 
@@ -510,6 +524,33 @@ function renderDivisions() {
       </div>`;
   }
 
+  function resolveWeatherPayload(destination, weatherResponse) {
+    const candidates = [];
+
+    if (weatherResponse && typeof weatherResponse === 'object') {
+      candidates.push(weatherResponse);
+      if (weatherResponse.weather && typeof weatherResponse.weather === 'object') {
+        candidates.push(weatherResponse.weather);
+      }
+    }
+
+    if (destination && typeof destination === 'object') {
+      candidates.push(destination);
+      if (destination.weather && typeof destination.weather === 'object') {
+        candidates.push(destination.weather);
+      }
+    }
+
+    for (const candidate of candidates) {
+      if (!candidate || typeof candidate !== 'object' || Array.isArray(candidate)) continue;
+      const hasWeatherMetrics = ['temperature', 'feelsLike', 'condition', 'rainProbability', 'precipitationMm', 'windSpeedKmh', 'humidity', 'visibilityKm']
+        .some((field) => candidate[field] !== undefined && candidate[field] !== null);
+      if (hasWeatherMetrics) return candidate;
+    }
+
+    return {};
+  }
+
   // ---------- Details modal ----------
   async function openDetails(id) {
     modal.hidden = false;
@@ -518,7 +559,23 @@ function renderDivisions() {
       <div class="modal-loading"><span class="spinner"></span><p>Loading destination…</p></div>`;
 
     try {
-      const item = await fetchJSON(`${API_BASE}/api/destinations/${id}?date=${state.date}`);
+      const destinationRequest = fetchJSON(`${API_BASE}/api/destinations/${id}?date=${state.date}`);
+      const weatherRequest = fetchJSON(`${API_BASE}/api/weather?id=${encodeURIComponent(id)}&date=${state.date}`);
+
+      const [destinationResult, weatherResult] = await Promise.allSettled([destinationRequest, weatherRequest]);
+      const destination = destinationResult.status === 'fulfilled' ? destinationResult.value : null;
+      const weather = weatherResult.status === 'fulfilled' ? weatherResult.value : null;
+      const weatherPayload = resolveWeatherPayload(destination, weather);
+
+      const item = {
+        ...(destination || {}),
+        ...(weather || {}),
+        weather: weatherPayload,
+      };
+
+      if (!item.id && destination && destination.id) item.id = destination.id;
+      if (!item.name && destination && destination.name) item.name = destination.name;
+
       modalBody.innerHTML = detailsHTML(item);
     } catch (err) {
       modalBody.innerHTML = `
@@ -531,6 +588,11 @@ function renderDivisions() {
     const w = item.weather || {};
     const activities = Array.isArray(item.recommendedActivities) ? item.recommendedActivities : [];
     const recommendation = typeof item?.recommendation === 'string' ? item.recommendation : 'Not recommended';
+    const latitude = Number(item.latitude);
+    const longitude = Number(item.longitude);
+    const coordsText = Number.isFinite(latitude) && Number.isFinite(longitude)
+      ? `${latitude.toFixed(3)}, ${longitude.toFixed(3)}`
+      : 'Coordinates unavailable';
 
     const noteHtml = w.note
       ? `<div class="modal-note">ℹ️ ${escapeHtml(w.note)}</div>`
@@ -557,8 +619,8 @@ function renderDivisions() {
         <span class="chip">${escapeHtml(item.category)}</span>
         <h2 class="modal-title">${escapeHtml(item.name)}</h2>
         ${item.location && item.location.length > 0 ? `<p class="modal-location-detail">📍 ${escapeHtml(item.location)}</p>` : ''}
-        <p class="modal-location">📍 ${escapeHtml(item.country)} · ${item.latitude.toFixed(3)}, ${item.longitude.toFixed(3)}</p>
-        <p class="modal-desc">${escapeHtml(item.shortDescription)}</p>
+        <p class="modal-location">📍 ${escapeHtml(item.country || 'Bangladesh')} · ${coordsText}</p>
+        <p class="modal-desc">${escapeHtml(item.shortDescription || '')}</p>
 
         <div class="modal-badges">
           <span class="score-badge">
